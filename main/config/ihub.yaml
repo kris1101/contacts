@@ -1,0 +1,22 @@
+service:
+  addr: "0.0.0.0"
+  port: 8090
+  id: "job1"
+
+logging:
+   level: debug
+
+tls:
+  enabled: false
+  certfile: "config/tls/server.pem"
+  keyfile:  "config/tls/server.key"
+  cacert:   "config/tls/ca.pem"
+
+db:
+  type: mysql
+  datasource: root:123456@tcp(0.0.0.0:3305)/joors?parseTime=true
+  tls:
+    enabled: false
+    certfile:
+    keyfile:
+    cacert:

@@ -1,0 +1,17 @@
+version: '2.0'
+
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - 3305:3306
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./conf.d:/etc/mysql/conf.d
+      - ./my.cnf:/root/.my.cnf
+      - ./scripts/init.sql:/init.sql
+    environment:
+          MYSQL_ROOT_PASSWORD: "123456"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    container_name: mysql
+    restart: on-failure
